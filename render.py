@@ -29,8 +29,8 @@ for x in range(dimensions[0]):
             # TODO: invert the image and store in img_manip[x, y]
             # Hint: img[x, y] returns the color of the pixel at that coordinate.
             # You can invert by subtracting that color from white.
-            #for pixel in img:
-            print(img[x, y])
+            for i in white:
+                img[x, y] = white[i] - img[x, y][i]
 
 # Displays the original image in the top left corner of the screen.
 image = 'Original image'
