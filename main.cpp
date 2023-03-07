@@ -89,7 +89,8 @@ string get_filename() {
 }
 
 void print_menu() {
-
+    string prompt = "(a) flip, (b) mirror, (c) invert, or (d) exit\n";
+    cout << prompt << "Enter a character: ";
 }
 
 char get_manip_choice() {
