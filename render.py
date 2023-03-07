@@ -43,14 +43,17 @@ cv2.namedWindow(new_image)
 cv2.moveWindow(new_image, dimensions[1], 0)
 cv2.imshow(new_image, img_manip)
 
+index = filename.find('.')
+splitName = filename.split('.')
+Kfilename = splitName[0] + "_kaleidoscope." + splitName[1]
 
-
-# TODO: Create a kaleidoscope image, display it, and save it to a file.
+# Create a kaleidoscope image, display it, and save it to a file.
 # This line puts two images side-by-side in one window.
-#horizontal_concat = np.concatenate((img, img_manip), axis=1)
-# TODO: Save the image using the imwrite method from cv2
-# TODO: Show the image
-#cv2.imshow('Horizontal Concatenation!', horizontal_concat)
+horizontal_concat = np.concatenate((img, img_manip), axis=1)
+# Save the image using the imwrite method from cv2
+cv2.imwrite("../" + Kfilename, horizontal_concat)
+# Show the image
+cv2.imshow('Horizontal Concatenation!', horizontal_concat)
 
 
 # Infinite loop to keep the windows open until the escape key is pressed.
