@@ -89,10 +89,16 @@ string get_filename() {
 }
 
 void print_menu() {
-    string prompt = "(a) flip, (b) mirror, (c) invert, or (d) exit\n";
-    cout << prompt << "Enter a character: ";
+    cout << "Options: (a) flip, (b) mirror, (c) invert, or (d) exit" << endl;
 }
 
+/*
+ * Prompts the user for one of the options from the menu.
+ * Validates input: makes sure the user enters exactly one character
+ * and that it is one of the four valid options.
+ * If it isn't valid, keep prompting for input until a valid option
+ * is entered.
+ */
 char get_manip_choice() {
 
 }
