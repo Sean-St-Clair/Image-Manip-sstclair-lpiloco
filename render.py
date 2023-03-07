@@ -17,7 +17,7 @@ dimensions = img.shape
 # Copy the original image into an image for manipulation
 img_manip = cv2.resize(img, (dimensions[1], dimensions[0]))
 # Store white in a list, where each of the three parts is on a scale of [0, 255]
-white = [255, 255, 255]
+white = 255
 for x in range(dimensions[0]):
     for y in range(dimensions[1]):
         if manip == 'flip':
@@ -29,8 +29,8 @@ for x in range(dimensions[0]):
             # invert the image and store in img_manip[x, y]
             # Hint: img[x, y] returns the color of the pixel at that coordinate.
             # You can invert by subtracting that color from white.
-            for i in range(0, 2):
-                img_manip[x, y] = white[i] - img[x, y][i]
+            for i in range(0, 3):
+                img_manip[x, y][i] = white - img[x, y][i]
 
 # Displays the original image in the top left corner of the screen.
 image = 'Original image'
@@ -40,7 +40,7 @@ cv2.imshow(image, img)
 # Display the manipulated image alongside the original image.
 new_image = 'Manipulated image'
 cv2.namedWindow(new_image)
-cv2.moveWindow(new_image, 0, 0)
+cv2.moveWindow(new_image, dimensions[1], 0)
 cv2.imshow(new_image, img_manip)
 
 

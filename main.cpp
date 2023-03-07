@@ -62,7 +62,7 @@ int main() {
 
 string get_filename() {
     string path = "autumn.jpg";
-    cout << "Enter image path: ../";
+    cout << "Enter image path: ";
     string input;
     getline(cin, input);
 
@@ -72,9 +72,8 @@ string get_filename() {
     } else if (input.find(".jpg") != string::npos || input.find(".jpeg") != string::npos ||
                input.find(".jpe") != string::npos || input.find(".png") != string::npos) {
         // Check that the file exist within project folder
-        input = "../" + input;
         ifstream file;
-        file.open(input);
+        file.open("../" + input);
         if (file) {
             cout << "Success!" << endl;
             path = input;
