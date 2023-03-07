@@ -1,5 +1,6 @@
 #include <fstream>
 #include <iostream>
+
 using namespace std;
 
 // Different OSs use different CLI commands to run Python
@@ -45,13 +46,52 @@ int main() {
     string command;
     switch (choice) {
         // Use command-line arguments to pass the filename and manip to the Python file
-        case 'a': command = python + " ../render.py " + filename + " flip";
+        case 'a':
+            command = python + " ../render.py " + filename + " flip";
             break;
-        case 'b': command = python + " ../render.py " + filename + " mirror";
+        case 'b':
+            command = python + " ../render.py " + filename + " mirror";
             break;
-        case 'c': command = python + " ../render.py " + filename + " invert";
+        case 'c':
+            command = python + " ../render.py " + filename + " invert";
             break;
     }
     system(command.c_str());
     return 0;
+}
+
+string get_filename() {
+    string path = "autumn.jpg";
+    cout << "Enter image path: ../";
+    string input;
+    getline(cin, input);
+
+    // Keep path as default if no input is entered
+    if (input.empty()) {
+        cout << "No input detected! Using default: autumn.jpg" << endl;
+    } else if (input.find(".jpg") != string::npos || input.find(".jpeg") != string::npos ||
+               input.find(".jpe") != string::npos || input.find(".png") != string::npos) {
+        // Check that the file exist within project folder
+        input = "../" + input;
+        ifstream file;
+        file.open(input);
+        if (file) {
+            cout << "Success!" << endl;
+            path = input;
+        } else {
+            cout << "File not found. Using default: autumn.jpg" << endl;
+        }
+        file.close();
+    } else {
+        cout << "Invalid file extension. Using default: autumn.jpg" << endl;
+    }
+    return path;
+}
+
+void print_menu() {
+
+}
+
+char get_manip_choice() {
+
 }

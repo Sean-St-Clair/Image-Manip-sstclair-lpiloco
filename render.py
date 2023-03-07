@@ -3,7 +3,7 @@
 import cv2
 import sys
 # Kaleidoscope requires numpy. Uncomment this line and install it if you need to.
-#import numpy as np
+import numpy as np
 
 # Store command line arguments in variables
 # TODO: change the next line to store the filename
