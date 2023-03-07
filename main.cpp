@@ -6,7 +6,7 @@ using namespace std;
 // Different OSs use different CLI commands to run Python
 #ifdef _WIN32
 // TODO: If your Windows machine runs Python in CLI with "python" instead of "py", update this line.
-const string python = "py";
+const string python = "python";
 #else
 // TODO: If your Mac/Linux machine runs Python in CLI with "python3" instead of "python", update this line.
 const string python = "python";
