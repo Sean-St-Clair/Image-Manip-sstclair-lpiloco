@@ -15,7 +15,7 @@ const string python = "python";
 /*
  * Prompts the user for a filename.
  * Allows the user to enter nothing to use the default pic (autumn.jpg).
- * If the file has extension jpg, jpeg, jpe, or png
+ * If the file has extension jpg, jpeg, jpe, or png,
  * and it exists in the project folder, return it.
  * Otherwise, return the default pic filename.
  */
