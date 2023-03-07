@@ -26,10 +26,10 @@ for x in range(dimensions[0]):
             # mirror the image and store in img_manip[x, y]
             img_manip[x, y] = img[x, dimensions[1]-1-y]
         elif manip == 'invert':
-            # TODO: invert the image and store in img_manip[x, y]
+            # invert the image and store in img_manip[x, y]
             # Hint: img[x, y] returns the color of the pixel at that coordinate.
             # You can invert by subtracting that color from white.
-            for i in white:
+            for i in range(0, 2):
                 img_manip[x, y] = white[i] - img[x, y][i]
 
 # Displays the original image in the top left corner of the screen.
