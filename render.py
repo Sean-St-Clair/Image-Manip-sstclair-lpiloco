@@ -16,6 +16,8 @@ img = cv2.imread('../' + filename)
 dimensions = img.shape
 # Copy the original image into an image for manipulation
 img_manip = cv2.resize(img, (dimensions[1], dimensions[0]))
+img_flip = cv2.resize(img, (dimensions[1], dimensions[0]))
+img_mirror = cv2.resize(img, (dimensions[1], dimensions[0]))
 # Store white in a list, where each of the three parts is on a scale of [0, 255]
 white = 255
 for x in range(dimensions[0]):
@@ -31,6 +33,13 @@ for x in range(dimensions[0]):
             # You can invert by subtracting that color from white.
             for i in range(0, 3):
                 img_manip[x, y][i] = white - img[x, y][i]
+        img_flip[x, y] = img[dimensions[0]-1-x, y]
+        img_mirror[x, y] = img[x, dimensions[1]-1-y]
+
+img_flip_mirrored = cv2.resize(img_flip, (dimensions[1], dimensions[0]))
+for x in range(dimensions[0]):
+    for y in range(dimensions[1]):
+        img_flip_mirrored[x, y] = img_flip[x, dimensions[1]-1-y]
 
 # Displays the original image in the top left corner of the screen.
 image = 'Original image'
@@ -49,7 +58,10 @@ Kfilename = splitName[0] + "_kaleidoscope." + splitName[1]
 
 # Create a kaleidoscope image, display it, and save it to a file.
 # This line puts two images side-by-side in one window.
-horizontal_concat = np.concatenate((img, img_manip), axis=1)
+vertical_concat1 = np.concatenate((img, img_flip), axis=0)
+vertical_concat2 = np.concatenate((img_mirror, img_flip_mirrored), axis=0)
+
+horizontal_concat = np.concatenate((vertical_concat1, vertical_concat2), axis=1)
 # Save the image using the imwrite method from cv2
 cv2.imwrite("../" + Kfilename, horizontal_concat)
 # Show the image
