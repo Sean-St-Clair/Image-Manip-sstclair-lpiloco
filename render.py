@@ -30,14 +30,18 @@ for x in range(dimensions[0]):
             # Hint: img[x, y] returns the color of the pixel at that coordinate.
             # You can invert by subtracting that color from white.
             for i in white:
-                img[x, y] = white[i] - img[x, y][i]
+                img_manip[x, y] = white[i] - img[x, y][i]
 
 # Displays the original image in the top left corner of the screen.
 image = 'Original image'
 cv2.namedWindow(image)
 cv2.moveWindow(image, 0, 0)
 cv2.imshow(image, img)
-# TODO: Display the manipulated image alongside the original image.
+# Display the manipulated image alongside the original image.
+new_image = 'Manipulated image'
+cv2.namedWindow(new_image)
+cv2.moveWindow(new_image, 0, 0)
+cv2.imshow(new_image, img_manip)
 
 
 
